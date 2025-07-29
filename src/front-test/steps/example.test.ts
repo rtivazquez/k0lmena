@@ -4,33 +4,38 @@ import { BASEURL } from '../config';
 import { pages } from '../hooks/hook';
 import { validateFirstLocator } from '../utils/validations';
 import {
-  inputLabel,
-  buttonSearch,
-  divResult
+  
+  changelog,
+  version,
+  performanceText
 } from '../locators/exampleLocators';
 import {
   getByPlaceholderAndClickIt,
   getByPlaceholderAndFillIt,
-  getElementByRole
+  getByText
 } from '../utils/interactions';
 
-Given("User navigates to MercadoLibre page", async () => {
+
+Given('El usuario esta en la pagina de k0lmema', async () => {
   for (const page of pages) {
     console.log(`Ejecutando prueba en navegador: ${page.context().browser()?.browserType().name()}`);
     await page.goto(BASEURL);
   }
 });
 
-When('User search for cars options', async function () {
+When('El usuario clickea el link de change log', async function () {
   for (const page of pages) {
-    await getByPlaceholderAndClickIt(page, inputLabel);
-    await getByPlaceholderAndFillIt(page, inputLabel, "auto");
-    await page.locator(buttonSearch).click();
+    await page.getByText(changelog).click();
+  }
+});
+When('El usuario clickea la version 2.0', async function () {
+  for (const page of pages) {
+    await page.getByRole('link',{name:version})
   }
 });
 
-Then('It should show all the results according to the search', async function () {
+Then('El usuario ve la informacion de la version 2.0', async function () {
   for (const page of pages) {
-    expect(validateFirstLocator(page, "div", divResult)).toBeTruthy();
+    await expect(page.locator(`text=${version}`).first()).toBeVisible();
   }
 });
