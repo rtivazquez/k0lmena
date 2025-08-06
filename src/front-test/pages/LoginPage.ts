@@ -1,24 +1,42 @@
 import { Page } from '@playwright/test';
-import { loginLocators } from '../locators/loginlocator';
+import { loginLocators } from '../locators/loginLocator';
+import { pages } from '../hooks/hook';
+import { BASEURL } from '../config';
+
 
 export class LoginPage {
-  constructor(private page: Page) {}
+
 
   async navigate() {
-    await this.page.goto(process.env.BASEURL!);
+   
+    for (const page of pages) {
+    console.log(`Ejecutando prueba en navegador: ${page.context().browser()?.browserType().name()}`);
+    await page.goto(BASEURL);}
   }
 
   async login() {
-    await loginLocators.usernameInput(this.page).fill(process.env.SF_USERNAME!);
-    await loginLocators.passwordInput(this.page).fill(process.env.SF_PASSWORD!);
-    await loginLocators.loginButton(this.page).click();
+     for (const page of pages) {
+    await loginLocators.usernameInput(page).fill(process.env.SF_USERNAME!);
+    await loginLocators.passwordInput(page).fill(process.env.SF_PASSWORD!);
+    await loginLocators.loginButton(page).click();
+     }
   }
 
   async isOnDashboard(): Promise<boolean> {
-    return loginLocators.dashboardIdentifier(this.page).isVisible();
+    for (const page of pages) {
+      if (await loginLocators.dashboardIdentifier(page).isVisible()) {
+        return true;
+      }
+    }
+    return false;
   }
 
   async isErrorVisible(): Promise<boolean> {
-    return loginLocators.errorMessage(this.page).isVisible();
+    for (const page of pages) {
+      if (await loginLocators.errorMessage(page).isVisible()) {
+        return true;
+      }
+    }
+    return false;
   }
 }

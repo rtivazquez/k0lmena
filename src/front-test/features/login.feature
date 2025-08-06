@@ -1,5 +1,5 @@
 
-@salesforcedev @smoke
+ @login
 Feature: Salesforce  dev Login   
     Scenario: 
         Given the user navigates to the login page

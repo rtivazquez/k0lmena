@@ -1,10 +1,11 @@
 import { Given, When, Then } from '@cucumber/cucumber';
-import { LoginPage } from '../pages/LoginPage';
 import { pages } from '../hooks/hook';
 import { expect } from '@playwright/test';
+import { LoginPage } from '../pages/LoginPage';
 
 // Usamos la primera página del array
-const loginPage = new LoginPage(pages[0]); // ✅ Usa la primera instancia del array
+const loginPage = new LoginPage(); 
+
 
 
 Given('the user navigates to the login page', async () => {
