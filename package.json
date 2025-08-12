@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "login": "npx cucumber-js --profile front --tags @login --retry 1",
-    "account": "npx cucumber-js --profile front --tags @account --retry 1",
+    "account": "npx cucumber-js --profile front --tags @account --retry 0",
     "test": "npx cucumber-js --profile front --tags @Smoke --retry 1",
     "allTests": "npx cucumber-js test",
     "report": "npx ts-node src/reports/front/report-generator.js",
@@ -43,7 +43,7 @@
     "artillery-engine-playwright": "^1.19.0",
     "cross-env": "^7.0.3",
     "cucumber-html-reporter": "^6.0.0",
-    "dotenv": "^16.5.0",
+    "dotenv": "^16.6.1",
     "multiple-cucumber-html-reporter": "^3.9.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3",

@@ -17,6 +17,7 @@ console.log = function (...args: any[]) {
 
 let browser: Browser;
 const pages: Page[] = [];
+export const getPage = () => pages[0];
 
 BeforeAll(async () => {
   console.log('[HOOK] Lanzando navegador Chromium...');

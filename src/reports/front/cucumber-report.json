@@ -6,86 +6,98 @@
         "description": "",
         "id": "account-creation;create-a-new-account",
         "keyword": "Scenario",
-        "line": 8,
+        "line": 5,
         "name": "Create a new account",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 9,
+            "line": 6,
             "name": "the user navigates to the login page",
             "match": {
-              "location": "src\\front-test\\steps\\login.test.ts:11"
+              "location": "src\\front-test\\steps\\login.test.ts:9"
             },
             "result": {
               "status": "passed",
-              "duration": 2175725699
+              "duration": 2101228299
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 10,
+            "line": 7,
             "name": "the user enters valid credentials and clicks the login button",
             "match": {
-              "location": "src\\front-test\\steps\\login.test.ts:15"
+              "location": "src\\front-test\\steps\\login.test.ts:13"
             },
             "result": {
               "status": "passed",
-              "duration": 2105656899
+              "duration": 8744770398
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "the user should be redirected to the dashboard of Salesforce",
+            "match": {
+              "location": "src\\front-test\\steps\\login.test.ts:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 160598599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "the user navigates to the \"Accounts\" tab",
+            "match": {
+              "location": "src\\front-test\\steps\\account.test.ts:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2547988598
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "clicks \"New\"",
+            "match": {
+              "location": "src\\front-test\\steps\\account.test.ts:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3964468200
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
             "line": 11,
-            "name": "the user should be redirected to the dashboard of Salesforce",
+            "name": "fills in the account details",
             "match": {
-              "location": "src\\front-test\\steps\\login.test.ts:19"
+              "location": "src\\front-test\\steps\\account.test.ts:14"
             },
             "result": {
               "status": "passed",
-              "duration": 3945915999
+              "duration": 1382291300
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
             "line": 12,
-            "name": "the user navigates to the \"Accounts\" tab",
+            "name": "clicks \"Save\"",
+            "match": {
+              "location": "src\\front-test\\steps\\account.test.ts:23"
+            },
             "result": {
-              "status": "undefined",
-              "duration": 0
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 13,
-            "name": "clicks \"New\"",
-            "result": {
-              "status": "undefined",
-              "duration": 0
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 14,
-            "name": "fills out the required account details",
-            "result": {
-              "status": "undefined",
-              "duration": 0
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 15,
-            "name": "the account should be created successfully",
-            "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "passed",
+              "duration": 7145351499
             }
           }
         ],
@@ -99,7 +111,7 @@
       }
     ],
     "id": "account-creation",
-    "line": 4,
+    "line": 3,
     "keyword": "Feature",
     "name": "Account Creation",
     "tags": [

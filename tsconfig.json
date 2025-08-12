@@ -1,16 +1,24 @@
 {
   "compilerOptions": {
-    "skipLibCheck": true,
-    "noErrorTruncation": true,
+    "target": "ES2020",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "lib": ["ES2020", "DOM"],
+
+    "baseUrl": ".",
+    "rootDir": "src",
+
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "lib": ["esnext", "dom"],
-    "moduleResolution": "node",
-    "target": "esnext",
-    "module": "commonjs",
-    "baseUrl": ".",
-    "types": ["node"]
+
+    "skipLibCheck": true,
+    "noErrorTruncation": true,
+
+    "types": ["node"],
+
+    "noEmit": true
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
 }

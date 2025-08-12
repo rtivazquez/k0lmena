@@ -1,41 +1,28 @@
-import { expect } from '@playwright/test';
-import { Given, When, Then } from '@cucumber/cucumber';
-import { BASEURL } from '../config';
-import { pages } from '../hooks/hook';
-import { validateFirstLocator } from '../utils/validations';
-import {
-  
-  changelog,
-  version,
-  performanceText
-} from '../locators/exampleLocators';
-import {
-  getByPlaceholderAndClickIt,
-  getByPlaceholderAndFillIt,
-  getByText
-} from '../utils/interactions';
+import { When, Then } from '@cucumber/cucumber';
+import { AccountsPage } from '../pages/AccountsPage';
 
+const accounts = new AccountsPage();
 
-Given('El usuario esta en la pagina de k0lmema', async () => {
-  for (const page of pages) {
-    console.log(`Ejecutando prueba en navegador: ${page.context().browser()?.browserType().name()}`);
-    await page.goto(BASEURL);
-  }
+When('the user navigates to the "Accounts" tab', async () => {
+  await accounts.goToTab();
 });
 
-When('El usuario clickea el link de change log', async function () {
-  for (const page of pages) {
-    await page.getByText(changelog).click();
-  }
-});
-When('El usuario clickea la version 2.0', async function () {
-  for (const page of pages) {
-    await page.getByRole('link',{name:version})
-  }
+When('clicks "New"', async () => {
+  await accounts.openNewModal();
 });
 
-Then('El usuario ve la informacion de la version 2.0', async function () {
-  for (const page of pages) {
-    await expect(page.locator(`text=${version}`).first()).toBeVisible();
-  }
+When('fills in the account details', async () => {
+  await accounts.fillMandatoryFields('Test Automation Account', {
+    phone: '5491122334455',
+    website: 'https://example.com',
+    rating: 'Hot',
+    type: 'Customer - Direct',
+  });
 });
+
+When('clicks "Save"', async () => {
+  await accounts.save();
+});
+
+
+

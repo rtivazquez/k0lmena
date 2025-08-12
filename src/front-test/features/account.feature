@@ -1,9 +1,6 @@
 
 @account
-
 Feature: Account Creation
-
-
 
 Scenario: Create a new account
   Given the user navigates to the login page
@@ -11,10 +8,6 @@ Scenario: Create a new account
   And the user should be redirected to the dashboard of Salesforce
   And the user navigates to the "Accounts" tab
   And clicks "New"
-  And fills out the required account details
-  Then the account should be created successfully
-
-
-
-
-
+  And fills in the account details
+  And clicks "Save"
+  

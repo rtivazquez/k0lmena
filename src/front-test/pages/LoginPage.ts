@@ -1,42 +1,40 @@
-import { Page } from '@playwright/test';
+import { expect } from '@playwright/test';
+import { getPage } from '../hooks/hook';
+import { BASEURL, SF_USERNAME, SF_PASSWORD } from '../config/env';
 import { loginLocators } from '../locators/loginLocator';
-import { pages } from '../hooks/hook';
-import { BASEURL } from '../config';
-
 
 export class LoginPage {
-
-
-  async navigate() {
-   
-    for (const page of pages) {
-    console.log(`Ejecutando prueba en navegador: ${page.context().browser()?.browserType().name()}`);
-    await page.goto(BASEURL);}
+ 
+  async goto() {
+    const page = getPage();
+    await page.goto(BASEURL, { waitUntil: 'load' });
   }
 
-  async login() {
-     for (const page of pages) {
-    await loginLocators.usernameInput(page).fill(process.env.SF_USERNAME!);
-    await loginLocators.passwordInput(page).fill(process.env.SF_PASSWORD!);
-    await loginLocators.loginButton(page).click();
-     }
-  }
+  async login(username = SF_USERNAME, password = SF_PASSWORD) {
+    const page = getPage();
 
-  async isOnDashboard(): Promise<boolean> {
-    for (const page of pages) {
-      if (await loginLocators.dashboardIdentifier(page).isVisible()) {
-        return true;
-      }
+    if (await loginLocators.homeIdentifier(page).isVisible().catch(() => false)) {
+      return;
     }
-    return false;
+
+    // Espera el form de login visible
+    await expect(loginLocators.username(page)).toBeVisible({ timeout: 20_000 });
+    await loginLocators.username(page).fill(username);
+    await loginLocators.password(page).fill(password);
+    await loginLocators.submit(page).click();
+
+    // Redirección a Lightning (My Domain): espera hasta que aparezca el home
+    await this.assertDashboardVisible();
   }
 
-  async isErrorVisible(): Promise<boolean> {
-    for (const page of pages) {
-      if (await loginLocators.errorMessage(page).isVisible()) {
-        return true;
-      }
-    }
-    return false;
+  
+  async assertDashboardVisible() {
+    const page = getPage();
+    const home = loginLocators.homeIdentifier(page);
+    await expect(home).toBeVisible({ timeout: 30_000 });
+    await expect(page).toHaveURL(/lightning\.force\.com\/.*lightning\/.*/i, {
+      timeout: 30_000,
+    });
   }
 }
+

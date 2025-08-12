@@ -1,15 +1,13 @@
 import { Given, When, Then } from '@cucumber/cucumber';
-import { pages } from '../hooks/hook';
 import { expect } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
+import { accountLocators } from '../locators/accountLocator';
+import { getPage } from '../hooks/hook';
 
-// Usamos la primera página del array
-const loginPage = new LoginPage(); 
-
-
+const loginPage = new LoginPage();
 
 Given('the user navigates to the login page', async () => {
-  await loginPage.navigate();
+  await loginPage.goto();
 });
 
 When('the user enters valid credentials and clicks the login button', async () => {
@@ -17,6 +15,9 @@ When('the user enters valid credentials and clicks the login button', async () =
 });
 
 Then('the user should be redirected to the dashboard of Salesforce', async () => {
-  await expect(pages[0]).toHaveURL(/lightning\.force\.com/);
-});
+  const page = getPage();
 
+  await expect(page).toHaveURL(/\/lightning\//, { timeout: 30_000 });
+
+    await expect(accountLocators.accountsTab(page)).toBeVisible({ timeout: 30_000 });
+  });
