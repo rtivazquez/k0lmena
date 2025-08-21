@@ -1,5 +1,5 @@
 
-@salesforcedev @smoke
+@salesforcedev 
 Feature: Contact Creation
 
 Scenario: Create a new contact

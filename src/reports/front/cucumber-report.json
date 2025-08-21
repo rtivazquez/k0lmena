@@ -19,7 +19,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 2101228299
+              "duration": 2175052999
             }
           },
           {
@@ -32,7 +32,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 8744770398
+              "duration": 7699723298
             }
           },
           {
@@ -45,7 +45,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 160598599
+              "duration": 233722899
             }
           },
           {
@@ -58,7 +58,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 2547988598
+              "duration": 2800636299
             }
           },
           {
@@ -71,7 +71,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 3964468200
+              "duration": 2118784500
             }
           },
           {
@@ -84,7 +84,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1382291300
+              "duration": 947812399
             }
           },
           {
@@ -97,13 +97,174 @@
             },
             "result": {
               "status": "passed",
-              "duration": 7145351499
+              "duration": 7130192199
             }
           }
         ],
         "tags": [
           {
             "name": "@account",
+            "line": 2
+          },
+          {
+            "name": "@smoke",
+            "line": 2
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "account-creation;create-a-new-account-(negative)",
+        "keyword": "Scenario",
+        "line": 14,
+        "name": "Create a new account (negative)",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 15,
+            "name": "the user navigates to the login page",
+            "match": {
+              "location": "src\\front-test\\steps\\login.test.ts:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 704872698
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 16,
+            "name": "the user enters valid credentials and clicks the login button",
+            "match": {
+              "location": "src\\front-test\\steps\\login.test.ts:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5833085299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 17,
+            "name": "the user should be redirected to the dashboard of Salesforce",
+            "match": {
+              "location": "src\\front-test\\steps\\login.test.ts:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 100142198
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "the user navigates to the \"Accounts\" tab",
+            "match": {
+              "location": "src\\front-test\\steps\\account.test.ts:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1522354299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "clicks \"New\"",
+            "match": {
+              "location": "src\\front-test\\steps\\account.test.ts:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1174928598
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Field",
+                      "Value"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Account Name",
+                      ""
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Phone",
+                      "abc123"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Email",
+                      "invalid-email"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "line": 20,
+            "name": "fills in the account details with invalid data",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 25,
+            "name": "clicks \"Save\"",
+            "match": {
+              "location": "src\\front-test\\steps\\account.test.ts:23"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 26,
+            "name": "the account should not be created",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 27,
+            "name": "an error message should be displayed",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@account",
+            "line": 2
+          },
+          {
+            "name": "@smoke",
             "line": 2
           }
         ],
@@ -117,6 +278,10 @@
     "tags": [
       {
         "name": "@account",
+        "line": 2
+      },
+      {
+        "name": "@smoke",
         "line": 2
       }
     ],

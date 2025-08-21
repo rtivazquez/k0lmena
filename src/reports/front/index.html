@@ -787,9 +787,20 @@ input#darkCheck:checked ~ label > svg#moon {
                                 Failed
                             </p>
                         </td>
-                        <td class="percentage">100.00 %</td>
+                        <td class="percentage">0.00 %</td>
                     </tr>
                     
+                    
+                    <tr>
+                        <td>
+                            <p data-bs-toggle="tooltip" data-placement="left"
+                               title="Features with undefined step definitions.">
+                                <i class="fa fa-question-circle not-defined-color"></i>
+                                Not Defined
+                            </p>
+                        </td>
+                        <td class="percentage">100.00 %</td>
+                    </tr>
                     
                     
                     
@@ -834,7 +845,7 @@ input#darkCheck:checked ~ label > svg#moon {
         <tr>
             <td class="chart">
                 <canvas id="scenario-chart"></canvas>
-                <div class="total">1</div>
+                <div class="total">2</div>
             </td>
             <td>
                 <table class="tile_info">
@@ -845,7 +856,7 @@ input#darkCheck:checked ~ label > svg#moon {
                                 Passed
                             </p>
                         </td>
-                        <td class="percentage">0.00 %</td>
+                        <td class="percentage">50.00 %</td>
                     </tr>
                     <tr>
                         <td>
@@ -854,8 +865,18 @@ input#darkCheck:checked ~ label > svg#moon {
                                 Failed
                             </p>
                         </td>
-                        <td class="percentage">100.00 %</td>
+                        <td class="percentage">0.00 %</td>
                     
+                    
+                    <tr>
+                        <td>
+                            <p data-bs-toggle="tooltip" data-placement="left" title="Scenario has no step implmentation.">
+                                <i class="fa fa-question-circle not-defined-color"></i>
+                                Not defined
+                            </p>
+                        </td>
+                        <td class="percentage">50.00 %</td>
+                    </tr>
                     
                     </tr>
                     
@@ -897,7 +918,7 @@ input#darkCheck:checked ~ label > svg#moon {
                 
                 <tr>
                     <td class="meta-data-title">Execution Date</td>
-                    <td class="meta-data-data">12/8/2025, 12:10:56</td>
+                    <td class="meta-data-data">21/8/2025, 14:46:23</td>
                 </tr>
                 
             
@@ -955,6 +976,8 @@ input#darkCheck:checked ~ label > svg#moon {
                         
                         
                         
+                        <th>Undefined</th>
+                        
                         
                     </tr>
                     </thead>
@@ -963,7 +986,7 @@ input#darkCheck:checked ~ label > svg#moon {
                     
                     <tr>
                         <td>
-                            <a href="features/c487faf4-df72-4ca6-9183-7868c8a1508d-account-creation.html">Account Creation</a>
+                            <a href="features/52b80d94-d0bb-4565-90f2-b41dbeb32321-account-creation.html">Account Creation</a>
                         </td>
                         <td class="text-center">
                             
@@ -977,9 +1000,19 @@ input#darkCheck:checked ~ label > svg#moon {
                             
                             
                             
-                            <i class="fa fa-tag fa-lg" data-bs-toggle="tooltip" data-placement="top"
-                               title="@account">
-                                <span>@account</span>
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            <i class="fa fa-tags fa-lg" data-bs-toggle="tooltip" data-placement="top"
+                               title="@account @smoke">
+                                <span>@account @smoke</span>
                             </i>
                             
                             
@@ -991,8 +1024,8 @@ input#darkCheck:checked ~ label > svg#moon {
                             
                             
                             
-                            <i class="fa fa-exclamation-circle failed-color fa-lg" data-bs-toggle="tooltip" data-placement="top" title="Failed">
-                                <span>exclamation-circle failed-color</span>
+                            <i class="fa fa-question-circle not-defined-color fa-lg" data-bs-toggle="tooltip" data-placement="top" title="Not Defined">
+                                <span>question-circle not-defined-color</span>
                             </i>
                         </td>
                         
@@ -1042,11 +1075,13 @@ input#darkCheck:checked ~ label > svg#moon {
                         
                         
                         
+                        <td class="text-right ">2</td>
                         <td class="text-right ">1</td>
                         <td class="text-right none">0</td>
+                        
+                        
+                        
                         <td class="text-right ">1</td>
-                        
-                        
                         
                         
                     </tr>
@@ -1155,11 +1190,11 @@ window.onload = function() {
                         datasets: [{
                             data: [
                                 0,
-                                1,
                                 0,
                                 0,
                                 0,
-                                0
+                                0,
+                                1
                             ],
                             backgroundColor: [
                                 getColor(".passed-color", "#26B99A"),
@@ -1193,12 +1228,12 @@ window.onload = function() {
                         ],
                         datasets: [{
                             data: [
-                                0,
                                 1,
                                 0,
                                 0,
                                 0,
-                                0
+                                0,
+                                1
                             ],
                             backgroundColor: [
                                 getColor(".passed-color", "#26B99A"),

@@ -5,7 +5,8 @@
   "scripts": {
     "login": "npx cucumber-js --profile front --tags @login --retry 1",
     "account": "npx cucumber-js --profile front --tags @account --retry 0",
-    "test": "npx cucumber-js --profile front --tags @Smoke --retry 1",
+    "test": "npx cucumber-js --profile front --tags \"@Smoke\" --retry 1",
+  
     "allTests": "npx cucumber-js test",
     "report": "npx ts-node src/reports/front/report-generator.js",
     "report-default": "node generate-report.ts",

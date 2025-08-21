@@ -1,5 +1,5 @@
 
-@salesforcedev @smoke
+@salesforcedev 
 Feature: Opportunity Creation
 
 Scenario: Create a new opportunity
